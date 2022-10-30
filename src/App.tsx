@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Typography } from "@mui/material";
+import { Form } from "./Form";
+import { ApiTodo } from "./api/graphql-schema";
+import { TodoListDate } from "./TodoListDate";
+import { TodoListFull } from "./TodoListFull";
+import { TodoList } from "./TodoList";
 
 function App() {
+  const [todos, setTodos] = React.useState<ApiTodo[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div style={{ margin: "0 auto 40px", width: 400 }}>
+        <Typography variant="h4">Todo list</Typography>
+        <TodoList todos={todos} setTodos={setTodos} />
+        <Form setTodos={setTodos} />
+      </div>
+
+      <div style={{ margin: "0 auto 40px", width: 400 }}>
+        <Typography variant="h4">Todo list with date</Typography>
+        <TodoListDate />
+      </div>
+
+      <div style={{ margin: "0 auto 40px", width: 400 }}>
+        <Typography variant="h4">Todo list full</Typography>
+        <TodoListFull />
+      </div>
+    </>
   );
 }
 

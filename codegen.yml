@@ -1,0 +1,12 @@
+schema:
+  - http://localhost:9002/graphql/
+generates:
+  src/api/graphql-schema.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+config:
+  scalars:
+    UUID: string
+  typesPrefix: Api
+  maybeValue: T | undefined
