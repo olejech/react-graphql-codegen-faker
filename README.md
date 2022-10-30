@@ -5,6 +5,6 @@ Using graphql codegen + faker
 
 In the project directory, you can run:
 
-### `yarn start`
 ### `yarn fake-server`
 ### `yarn codegen`
+### `yarn start`
